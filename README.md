@@ -26,4 +26,5 @@ bool r = inCheck();
 undo();
 Return r == false;
 
+
 This ensured that the move wouldn’t put the player in check. When the board control would select a piece it would call the getValidMoves() function to highlight all the available squares that piece could go to legally. If the player clicked on any of those squares the move would be fetched by the square, then it would execute, the game would change the current player, and the command would be added to a stack called notation. ChessGame.undo() would have reversed this process, popping the top Command on the stack, calling Command.undo() and then switching the current side.
